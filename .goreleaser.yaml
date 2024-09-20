@@ -11,108 +11,108 @@ changelog:
   disable: true
 
 builds:
-  - id: linux-arm64
-    main: ./
-    binary: categraf
-    env:
-      - CGO_ENABLED=0
-    goos:
-      - linux
-    goarch:
-      - arm64
-    ldflags:
-      - -s -w
-      - -X flashcat.cloud/categraf/config.Version={{ .Tag }}-{{.Commit}}
-  - id: linux-mips64
-    main: ./
-    binary: categraf
-    env:
-      - CGO_ENABLED=0
-    goos:
-      - linux
-    goarch:
-      - mips64
-    ldflags:
-      - -s -w
-      - -X flashcat.cloud/categraf/config.Version={{ .Tag }}-{{.Commit}}
-  - id: linux-mips64le
-    main: ./
-    binary: categraf
-    env:
-      - CGO_ENABLED=0
-    goos:
-      - linux
-    goarch:
-      - mips64le
-    ldflags:
-      - -s -w
-      - -X flashcat.cloud/categraf/config.Version={{ .Tag }}-{{.Commit}}
-  - id: linux-amd64
-    main: ./
-    binary: categraf
-    env:
-      - CGO_ENABLED=0
-    goos:
-      - linux
-    goarch:
-      - amd64
-    ldflags:
-      - -s -w
-      - -X flashcat.cloud/categraf/config.Version={{ .Tag }}-{{.Commit}}
-  - id: linux-amd64-cgo
-    main: ./
-    binary: categraf
-    env:
-      - CGO_ENABLED=1
-    goos:
-      - linux
-    goarch:
-      - amd64
-    tags:
-      - dcgm
-    ldflags:
-      - -s -w
-      - -X flashcat.cloud/categraf/config.Version={{ .Tag }}-{{.Commit}}
-  - id: linux-slim
-    main: ./
-    binary: categraf
-    env:
-      - CGO_ENABLED=0
-    goos:
-      - linux
-    goarch:
-      - amd64
-      - arm64
-      - mips64
-      - mips64le
-    tags:
-      - no_ibex 
-      - no_traces
-      - no_logs
-      - no_prometheus
-    ldflags:
-      - -s -w
-      - -X flashcat.cloud/categraf/config.Version=slim-{{ .Tag }}-{{.Commit}}
-
-  - id: linux-metrics-agent
-    main: ./
-    binary: categraf
-    env:
-      - CGO_ENABLED=0
-    goos:
-      - linux
-    goarch:
-      - amd64
-      - arm64
-      - mips64
-      - mips64le
-    tags:
-      - no_ibex 
-      - no_traces
-      - no_logs
-    ldflags:
-      - -s -w
-      - -X flashcat.cloud/categraf/config.Version=slim-{{ .Tag }}-{{.Commit}}
+#  - id: linux-arm64
+#    main: ./
+#    binary: categraf
+#    env:
+#      - CGO_ENABLED=0
+#    goos:
+#      - linux
+#    goarch:
+#      - arm64
+#    ldflags:
+#      - -s -w
+#      - -X flashcat.cloud/categraf/config.Version={{ .Tag }}-{{.Commit}}
+#  - id: linux-mips64
+#    main: ./
+#    binary: categraf
+#    env:
+#      - CGO_ENABLED=0
+#    goos:
+#      - linux
+#    goarch:
+#      - mips64
+#    ldflags:
+#      - -s -w
+#      - -X flashcat.cloud/categraf/config.Version={{ .Tag }}-{{.Commit}}
+#  - id: linux-mips64le
+#    main: ./
+#    binary: categraf
+#    env:
+#      - CGO_ENABLED=0
+#    goos:
+#      - linux
+#    goarch:
+#      - mips64le
+#    ldflags:
+#      - -s -w
+#      - -X flashcat.cloud/categraf/config.Version={{ .Tag }}-{{.Commit}}
+#  - id: linux-amd64
+#    main: ./
+#    binary: categraf
+#    env:
+#      - CGO_ENABLED=0
+#    goos:
+#      - linux
+#    goarch:
+#      - amd64
+#    ldflags:
+#      - -s -w
+#      - -X flashcat.cloud/categraf/config.Version={{ .Tag }}-{{.Commit}}
+#  - id: linux-amd64-cgo
+#    main: ./
+#    binary: categraf
+#    env:
+#      - CGO_ENABLED=1
+#    goos:
+#      - linux
+#    goarch:
+#      - amd64
+#    tags:
+#      - dcgm
+#    ldflags:
+#      - -s -w
+#      - -X flashcat.cloud/categraf/config.Version={{ .Tag }}-{{.Commit}}
+#  - id: linux-slim
+#    main: ./
+#    binary: categraf
+#    env:
+#      - CGO_ENABLED=0
+#    goos:
+#      - linux
+#    goarch:
+#      - amd64
+#      - arm64
+#      - mips64
+#      - mips64le
+#    tags:
+#      - no_ibex 
+#      - no_traces
+#      - no_logs
+#      - no_prometheus
+#    ldflags:
+#      - -s -w
+#      - -X flashcat.cloud/categraf/config.Version=slim-{{ .Tag }}-{{.Commit}}
+#
+#  - id: linux-metrics-agent
+#    main: ./
+#    binary: categraf
+#    env:
+#      - CGO_ENABLED=0
+#    goos:
+#      - linux
+#    goarch:
+#      - amd64
+#      - arm64
+#      - mips64
+#      - mips64le
+#    tags:
+#      - no_ibex 
+#      - no_traces
+#      - no_logs
+#    ldflags:
+#      - -s -w
+#      - -X flashcat.cloud/categraf/config.Version=slim-{{ .Tag }}-{{.Commit}}
 
   - id: windows
     main: ./
@@ -129,24 +129,24 @@ builds:
       - -X flashcat.cloud/categraf/config.Version={{ .Tag }}-{{.Commit}}
 
 archives:
-  - id: categraf
-    builds:
-      - linux-amd64-cgo
-    format: tar.gz
-    format_overrides:
-      - goos: windows
-        format: zip
-    name_template: "{{ .ProjectName }}-v{{ .Version }}-{{ .Os }}-{{ .Arch }}-with-cgo-plugin"
-    wrap_in_directory: true
-    files:
-      - conf/*
+#  - id: categraf
+#    builds:
+#      - linux-amd64-cgo
+#    format: tar.gz
+#    format_overrides:
+#      - goos: windows
+#        format: zip
+#    name_template: "{{ .ProjectName }}-v{{ .Version }}-{{ .Os }}-{{ .Arch }}-with-cgo-plugin"
+#    wrap_in_directory: true
+#    files:
+#      - conf/*
 
   - id: categraf-common
     builds:
-      - linux-amd64
-      - linux-arm64
-      - linux-mips64
-      - linux-mips64le
+#      - linux-amd64
+#      - linux-arm64
+#      - linux-mips64
+#      - linux-mips64le
       - windows
     format: tar.gz
     format_overrides:
@@ -157,17 +157,17 @@ archives:
     files:
       - conf/*
 
-  - id: categraf-slim
-    builds:
-      - linux-slim
-    format: tar.gz
-    format_overrides:
-      - goos: windows
-        format: zip
-    name_template: "{{ .ProjectName }}-slim-v{{ .Version }}-{{ .Os }}-{{ .Arch }}"
-    wrap_in_directory: true
-    files:
-      - conf/*
+#  - id: categraf-slim
+#    builds:
+#      - linux-slim
+#    format: tar.gz
+#    format_overrides:
+#      - goos: windows
+#        format: zip
+#    name_template: "{{ .ProjectName }}-slim-v{{ .Version }}-{{ .Os }}-{{ .Arch }}"
+#    wrap_in_directory: true
+#    files:
+#      - conf/*
 
 #release:
 #  github:
